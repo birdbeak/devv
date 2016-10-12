@@ -30,6 +30,21 @@ function mouseDragged(){
 	ellipse(mouseX,mouseY,36,36);
 }
 
+function touchMoved(){
+	console.log('Sending: ' + touchX + ',' + touchY);
+	
+	var data = {
+		x: touchX,
+		y: touchY
+	};
+	
+	socket.emit('mouse',data);
+	
+	noStroke();
+	fill(255);
+	ellipse(touchX,touchY,36,36);	
+}
+
 function draw(){
 	
 }
