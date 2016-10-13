@@ -44,7 +44,7 @@ var radius = 10;
 var dragging = false;
 
 canvas.width = 400;
-canvas.height = 400;
+canvas.height = 300;
 
 ctx.lineWidth = radius*2;
 
@@ -66,18 +66,21 @@ function newputPoint(data){
 
 var putPoint = function(e){
 	
-	//e.preventDefault();
+	e.preventDefault();
+	
+	var xPos = e.pageX || e.originalEvent.touches[0].pageX,
+		yPos = e.pageY || e.originalEvent.touches[0].pageY;
 	
 	if(dragging){
-		ctx.lineTo(e.clientX, e.clientY);
+		ctx.lineTo(xPos,yPos);
 		ctx.strokeStyle = '#000';	
 		ctx.stroke();
 		ctx.beginPath();
 		ctx.fillStyle = '#000';
-		ctx.arc(e.clientX, e.clientY, radius, 0, Math.PI*2);
+		ctx.arc(xPos,yPos, radius, 0, Math.PI*2);
 		ctx.fill();
 		ctx.beginPath();
-		ctx.moveTo(e.clientX, e.clientY);
+		ctx.moveTo(xPos,yPos);
 	}
 	
 	var data = {
