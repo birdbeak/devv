@@ -60,6 +60,7 @@ function newputPoint(data){
 		ctx.beginPath();
 		ctx.moveTo(data.x, data.y);
 	}else{
+		dragging = false;
 		ctx.beginPath();
 	}
 }; 
