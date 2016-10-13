@@ -23,7 +23,21 @@ function mouseDragged(e){
 		y: e.y
 	};
 	
-	e.preventDefault();
+	socket.emit('mouse',data);
+	
+	noStroke();
+	fill(255,2555,255,70);
+	ellipse(e.x,e.y,8,8);
+	return false;
+}
+
+function touchMoved(e){
+	console.log('Sending: ' + e.x + ',' + e.y);
+	
+	var data = {
+		x: e.x,
+		y: e.y
+	};
 	
 	socket.emit('mouse',data);
 	
