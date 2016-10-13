@@ -10,7 +10,10 @@ function newputPoint(data){
 		ctx.fillStyle = '#ff9000';
 		ctx.arc(data.x,data.y, radius, 0, Math.PI*2);
 		ctx.fill();
-		ctx.beginPath();	
+		ctx.beginPath();
+		data.x =null;
+		data.y=null;
+		ctx.moveTo(data.x,data.y);		
 	}else{
 		ctx.beginPath();
 	}
