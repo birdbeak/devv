@@ -11,8 +11,8 @@ function setup(){
 
 function newDrawing(data){
 	noStroke();
-	fill(255,0,100);
-	ellipse(data.x,data.y,36,36);
+	fill(255,0,100,60);
+	ellipse(data.x,data.y,8,8);
 }
 
 function mouseDragged(){
@@ -26,8 +26,8 @@ function mouseDragged(){
 	socket.emit('mouse',data);
 	
 	noStroke();
-	fill(255);
-	ellipse(mouseX,mouseY,36,36);
+	fill(255,2555,255,60);
+	ellipse(mouseX,mouseY,8,8);
 }
 function draw(){
 	
