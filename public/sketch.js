@@ -67,7 +67,8 @@ var newputPoint = function(data){
 		ctx.fill();
 		ctx.beginPath();
 		ctx.moveTo(data.x, data.y);
-	}else{
+	}
+	if(!data.draw){
 		ctx.beginPath();
 	}
 };
