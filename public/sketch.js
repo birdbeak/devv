@@ -68,8 +68,8 @@ var putPoint = function(e){
 	
 	e.preventDefault();
 	
-	var xPos = e.pageX || e.originalEvent.touches[0].pageX,
-		yPos = e.pageY || e.originalEvent.touches[0].pageY;
+	var xPos = e.pageX === undefined ? e.originalEvent.touches[0].pageX : e.pageX,
+		yPos = e.pageY === undefined ? e.originalEvent.touches[0].pageY : e.pageY;
 	
 	if(dragging){
 		ctx.lineTo(xPos,yPos);
