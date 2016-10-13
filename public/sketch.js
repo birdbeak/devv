@@ -40,7 +40,7 @@ socket.on('mouse', newputPoint);
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
-var radius = 5;
+var radius = 2;
 
 var dragging = false;
 
@@ -113,6 +113,7 @@ var engage = function(e){
 
 var disengage = function(){
 	dragging = false;
+	ctx.closePath();
 	ctx.beginPath();
 };
 
