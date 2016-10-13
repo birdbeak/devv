@@ -66,6 +66,7 @@ var newputPoint = function(data){
 		ctx.fill();
 		ctx.beginPath();
 		ctx.moveTo(data.x, data.y);
+		ctx.stroke();
 	}else{
 		disengage();
 	}
