@@ -97,6 +97,8 @@ var disengage = function(){
 
 canvas.addEventListener('touchstart', engage,false);
 canvas.addEventListener('touchmove', putPoint,false);
+canvas.addEventListener('touchend', disengage,false);
+canvas.addEventListener('touchcancel', disengage,false);
 canvas.addEventListener('mousedown', engage,false);
 canvas.addEventListener('mousemove', putPoint,false);
 canvas.addEventListener('mouseup', disengage,false);
