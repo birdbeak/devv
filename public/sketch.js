@@ -18,8 +18,6 @@ function newDrawing(data){
 function mouseDragged(){
 	console.log('Sending: ' + mouseX + ',' + mouseY);
 	
-	mouseX.preventDefault();
-	
 	var data = {
 		x: mouseX,
 		y: mouseY
