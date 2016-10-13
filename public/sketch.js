@@ -66,26 +66,33 @@ function newputPoint(data){
 
 var putPoint = function(e){
 	
-	e.preventDefault();
+	var posX,posY;
 	
-	var xPos = e.pageX === undefined ? e.originalEvent.touches[0].pageX : e.pageX,
-		yPos = e.pageY === undefined ? e.originalEvent.touches[0].pageY : e.pageY;
+	if((e.clientX)&&(e.clientY)){
+		posX = e.clientX;
+		posY = e.clientY;
+	}
+	else if(e.targetTouches){
+		posX = e.targetTouches[0].clientX;
+		posY = e.targetTouches[0].clientY;
+		e.preventDefault();
+	}
 	
 	if(dragging){
-		ctx.lineTo(xPos,yPos);
+		ctx.lineTo(posX, posY);
 		ctx.strokeStyle = '#000';	
 		ctx.stroke();
 		ctx.beginPath();
 		ctx.fillStyle = '#000';
-		ctx.arc(xPos,yPos, radius, 0, Math.PI*2);
+		ctx.arc(posX, posY, radius, 0, Math.PI*2);
 		ctx.fill();
 		ctx.beginPath();
-		ctx.moveTo(xPos,yPos);
+		ctx.moveTo(posX, posY);
 	}
 	
 	var data = {
-		x : e.clientX,
-		y : e.clientY,
+		x : posX, 
+		y : posY,
 		draw : dragging
 	};
 	
