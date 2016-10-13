@@ -14,7 +14,7 @@ function newputPoint(data){
 		ctx.moveTo(data.x,data.y);		
 	}else{
 		ctx.beginPath();
-		ctx.moveTo(data.x,data.y);
-		ctx.stroke();
+		data.x =null;
+		data.y=null;
 	}
 };
