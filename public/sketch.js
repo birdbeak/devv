@@ -68,7 +68,6 @@ var newputPoint = function(data){
 		ctx.moveTo(data.x, data.y);
 	}else{
 		ctx.beginPath();
-		ctx.moveTo(data.x, data.y);
 	}
 };
 
@@ -109,6 +108,7 @@ var putPoint = function(e){
 
 var engage = function(e){
 	dragging = true;
+	ctx.stroke();
 	putPoint(e);
 };
 
