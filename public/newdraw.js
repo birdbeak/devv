@@ -17,15 +17,12 @@ function newputPoint(data){
 	}else{
 		canvas.addEventListener('touchend', function(){
 			ctx.beginPath();
-			ctx.moveTo(data.x,data.y);
 		},false);
 		canvas.addEventListener('touchcancel', function(){
 			ctx.beginPath();
-			ctx.moveTo(data.x,data.y);
 		},false);
 		canvas.addEventListener('mouseup', function(){
 			ctx.beginPath();
-			ctx.moveTo(data.x,data.y);
 		},false);
 	}
 };
