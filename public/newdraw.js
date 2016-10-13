@@ -4,6 +4,7 @@ socket.on('mouse', newputPoint);
 
 
 function newputPoint(data){
+	if(data.draw){
 		ctx.lineTo(data.x,data.y);
 		ctx.strokeStyle = '#ff9000';	
 		ctx.stroke();
@@ -19,4 +20,5 @@ function newputPoint(data){
 		canvas.addEventListener('touchcancel', function(){
 			ctx.beginPath();
 		},false);
+	}
 };
