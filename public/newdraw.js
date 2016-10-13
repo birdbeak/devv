@@ -3,7 +3,7 @@ socket.on('mouse', newputPoint);
 
 function newputPoint(data){
 	if(!data.draw){
-		disengage();
+		ctx.beginPath();
 	}
 	newputPoint(data);
 }; 
@@ -12,10 +12,10 @@ var newputPoint = function(data){
 	//console.log('Sending: ' + data.x + ',' + data.y);
 	if(data.draw){
 		ctx.lineTo(data.x,data.y);
-		ctx.strokeStyle = '#ff00af';	
+		ctx.strokeStyle = '#ff9000';	
 		ctx.stroke();
 		ctx.beginPath();
-		ctx.fillStyle = '#ff00af';
+		ctx.fillStyle = '#ff9000';
 		ctx.arc(data.x,data.y, radius, 0, Math.PI*2);
 		ctx.fill();
 		ctx.beginPath();
