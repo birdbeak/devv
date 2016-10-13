@@ -33,13 +33,14 @@ function draw(){
 	
 }*/
 
+
 socket = io.connect("//" + document.location.host || "//localhost:8080");
 socket.on('mouse', newputPoint);
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
-var radius = 8;
+var radius = 5;
 
 var dragging = false;
 
@@ -48,7 +49,13 @@ canvas.height = 300;
 
 ctx.lineWidth = radius*2;
 
+
+
 function newputPoint(data){
+	newputPoint(data);
+}; 
+
+var newputPoint = function(data){
 	if(data.draw){
 		ctx.lineTo(data.x, data.y);	
 		ctx.strokeStyle = '#ff8a00';
@@ -59,11 +66,10 @@ function newputPoint(data){
 		ctx.fill();
 		ctx.beginPath();
 		ctx.moveTo(data.x, data.y);
-		ctx.closePath();
 	}else{
-		ctx.beginPath();
+		disengage();
 	}
-}; 
+};
 
 var putPoint = function(e){
 	
