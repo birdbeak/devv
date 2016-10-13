@@ -68,26 +68,21 @@ var putPoint = function(e){
 	
 	e.preventDefault();
 	
-	var a = {
-		x : e.clientX,
-		y : e.clientY
-	};
-	
 	if(dragging){
-		ctx.lineTo(a.x, a.y);
+		ctx.lineTo(e.clientX, e.clientY);
 		ctx.strokeStyle = '#000';	
 		ctx.stroke();
 		ctx.beginPath();
 		ctx.fillStyle = '#000';
-		ctx.arc(a.x, a.y, radius, 0, Math.PI*2);
+		ctx.arc(e.clientX, e.clientY, radius, 0, Math.PI*2);
 		ctx.fill();
 		ctx.beginPath();
-		ctx.moveTo(a.x, a.y);
+		ctx.moveTo(e.clientX, e.clientY);
 	}
 	
 	var data = {
-		x : a.x,
-		y : a.y,
+		x : e.clientX,
+		y : e.clientY,
 		draw : dragging
 	};
 	
