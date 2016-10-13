@@ -58,18 +58,15 @@ function newputPoint(data){
 var newputPoint = function(data){
 	//console.log('Sending: ' + data.x + ',' + data.y);
 	if(data.draw){
-		ctx.lineTo(data.x, data.y);
-		ctx.strokeStyle = '#ff8a00';	
+		ctx.lineTo(data.x,data.y);
+		ctx.strokeStyle = '#ff00af';	
 		ctx.stroke();
 		ctx.beginPath();
-		ctx.fillStyle = '#ff8a00';
-		ctx.arc(data.x, data.y, radius, 0, Math.PI*2);
+		ctx.fillStyle = '#ff00af';
+		ctx.arc(data.x,data.y, radius, 0, Math.PI*2);
 		ctx.fill();
 		ctx.beginPath();
-		ctx.moveTo(data.x, data.y);
-	}
-	if(!data.draw){
-		ctx.beginPath();
+		ctx.moveTo(data.x,data.y);
 	}
 };
 
