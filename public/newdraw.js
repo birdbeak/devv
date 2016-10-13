@@ -1,4 +1,4 @@
-var socket = io.connect("//" + document.location.host || "//localhost:8080");
+/*var socket = io.connect("//" + document.location.host || "//localhost:8080");
 socket.on('mouse', newputPoint);
 
 
@@ -17,4 +17,4 @@ function newputPoint(data){
 	}else{
 		ctx.beginPath();
 	}
-};
+};*/

@@ -1,6 +1,6 @@
 var socket;
 
-/*function setup(){
+function setup(){
 	createCanvas(600,400);
 	background(51);
 	
@@ -12,7 +12,7 @@ var socket;
 function newDrawing(data){
 	noStroke();
 	fill(255,0,100);
-	line(mouseX,mouseY,mouseX,mouseY);
+	ellipse(data.x,data.y,36,36);
 }
 
 function mouseDragged(){
@@ -27,14 +27,14 @@ function mouseDragged(){
 	
 	noStroke();
 	fill(255);
-	line(mouseX,mouseY,mouseX,mouseY);
+	ellipse(mouseX,mouseY,36,36);
 }
 function draw(){
 	
-}*/
+}
 
 
-socket = io.connect("//" + document.location.host || "//localhost:8080");
+/*socket = io.connect("//" + document.location.host || "//localhost:8080");
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
@@ -103,3 +103,4 @@ canvas.addEventListener('mousedown', engage,false);
 canvas.addEventListener('mousemove', putPoint,false);
 canvas.addEventListener('mouseup', disengage,false);
 
+*/
