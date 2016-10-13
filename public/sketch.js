@@ -62,19 +62,33 @@ function newputPoint(data){
 	}else{
 		ctx.beginPath();
 	}
-};
+}; 
 
 var putPoint = function(e){
+	
+	if(e.clientX){
+		var a = {
+			x : e.clientX,
+			y : e.clientY
+		};
+	}
+	else if(e.pageX){
+		var a = {
+			x : e.pageX,
+			y : e.pageY
+		};
+	}
+	
 	if(dragging){
-		ctx.lineTo(e.clientX, e.clientY);
+		ctx.lineTo(a.x, a.y);
 		ctx.strokeStyle = '#000';	
 		ctx.stroke();
 		ctx.beginPath();
 		ctx.fillStyle = '#000';
-		ctx.arc(e.clientX, e.clientY, radius, 0, Math.PI*2);
+		ctx.arc(a.x, a.y, radius, 0, Math.PI*2);
 		ctx.fill();
 		ctx.beginPath();
-		ctx.moveTo(e.clientX,e.clientY);
+		ctx.moveTo(a.x, a.y);
 	}
 	
 	var data = {
