@@ -66,7 +66,7 @@ function newputPoint(data){
 
 var putPoint = function(e){
 	
-	e.preventDefault();
+	//e.preventDefault();
 	
 	if(dragging){
 		ctx.lineTo(e.clientX, e.clientY);
