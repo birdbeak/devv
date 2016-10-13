@@ -1,6 +1,9 @@
 var socket = io.connect("//" + document.location.host || "//localhost:8080");
 socket.on('mouse', newputPoint);
-var lol = {};
+var lol = {
+	x:0,
+	y:0
+};
 
 function newputPoint(data){
 	if(data.draw){
