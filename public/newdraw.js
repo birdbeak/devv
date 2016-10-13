@@ -14,14 +14,15 @@ function newputPoint(data){
 		ctx.fill();
 		ctx.beginPath();
 		ctx.moveTo(data.x,data.y);
-		canvas.addEventListener('touchend', function(){
-			ctx.beginPath();
-		},false);
-		canvas.addEventListener('touchcancel', function(){
-			ctx.beginPath();
-		},false);
-		canvas.addEventListener('mouseup', function(){
-			ctx.beginPath();
-		},false);
 	}
+	
+	canvas.addEventListener('touchend', function(){
+		ctx.beginPath();
+	},false);
+	canvas.addEventListener('touchcancel', function(){
+		ctx.beginPath();
+	},false);
+	canvas.addEventListener('mouseup', function(){
+		ctx.beginPath();
+	},false);
 };
