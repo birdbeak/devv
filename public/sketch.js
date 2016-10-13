@@ -52,6 +52,9 @@ ctx.lineWidth = radius*2;
 
 
 function newputPoint(data){
+	if(!data.draw){
+		disengage();
+	}
 	newputPoint(data);
 }; 
 
