@@ -66,34 +66,28 @@ function newputPoint(data){
 
 var putPoint = function(e){
 	
-	if(e.clientX != null){
-		var a = {
-			x : e.clientX,
-			y : e.clientY
-		};
-	}
-	else if(e.pageX != null){
-		var a = {
-			x : e.pageX,
-			y : e.pageY
-		};
-	}
+	e.preventDefault();
+	
+	var a = {
+		x : e.clientX,
+		y : e.clientY
+	};
 	
 	if(dragging){
-		ctx.lineTo(e.pageX, e.pageY);
+		ctx.lineTo(a.x, a.y);
 		ctx.strokeStyle = '#000';	
 		ctx.stroke();
 		ctx.beginPath();
 		ctx.fillStyle = '#000';
-		ctx.arc(e.pageX, e.pageY, radius, 0, Math.PI*2);
+		ctx.arc(a.x, a.y, radius, 0, Math.PI*2);
 		ctx.fill();
 		ctx.beginPath();
-		ctx.moveTo(e.pageX, e.pageY);
+		ctx.moveTo(a.x, a.y);
 	}
 	
 	var data = {
-		x : e.clientX,
-		y : e.clientY,
+		x : a.x,
+		y : a.y,
 		draw : dragging
 	};
 	
