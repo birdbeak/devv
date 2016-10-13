@@ -12,7 +12,7 @@ function newputPoint(data){
 		ctx.arc(data.x,data.y, radius, 0, Math.PI*2);
 		ctx.fill();
 		ctx.beginPath();
-		ctx.moveTo(lol.z,lol.y);		
+		ctx.moveTo(lol.x,lol.y);		
 	}else{
 		ctx.beginPath();
 		lol.x = data.x;
