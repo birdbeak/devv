@@ -20,5 +20,8 @@ function newputPoint(data){
 		canvas.addEventListener('touchcancel', function(){
 			ctx.beginPath();
 		},false);
+		canvas.addEventListener('mouseup', function(){
+			ctx.beginPath();
+		},false);
 	}
 };
