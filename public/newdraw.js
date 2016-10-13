@@ -4,10 +4,6 @@ socket.on('mouse', newputPoint);
 
 
 function newputPoint(data){
-	var lol = {
-		x:data.x,
-		y:data.y
-	};
 	
 	if(data.draw){
 		ctx.lineTo(data.x,data.y);
@@ -18,10 +14,8 @@ function newputPoint(data){
 		ctx.arc(data.x,data.y, radius, 0, Math.PI*2);
 		ctx.fill();
 		ctx.beginPath();
-		ctx.moveTo(lol.x,lol.y);		
+		ctx.moveTo(data.x,data.y);		
 	}else{
 		ctx.beginPath();
-		lol.x = data.x;
-		lol.y = data.y;
 	}
 };
