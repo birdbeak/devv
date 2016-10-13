@@ -31,19 +31,19 @@ function mouseDragged(e){
 	return false;
 }
 
-function touchMoved(e){
-	console.log('Sending: ' + e.x + ',' + e.y);
+function touchMoved(){
+	console.log('Sending: ' + touchX + ',' + touchY);
 	
 	var data = {
-		x: e.x,
-		y: e.y
+		x: touchX, 
+		y: touchY
 	};
 	
 	socket.emit('mouse',data);
 	
 	noStroke();
 	fill(255,2555,255,70);
-	ellipse(e.x,e.y,8,8);
+	ellipse(touchX, touchY,8,8);
 	return false;
 }
 function draw(){
