@@ -43,8 +43,8 @@ var radius = 10;
 
 var dragging = false;
 
-canvas.width = 600;
-canvas.height = 600;
+canvas.width = 400;
+canvas.height = 400;
 
 ctx.lineWidth = radius*2;
 
