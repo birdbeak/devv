@@ -1,8 +1,8 @@
 var socket = io.connect("//" + document.location.host || "//localhost:8080");
 socket.on('mouse', newputPoint);
+var lol = {};
 
 function newputPoint(data){
-	var lol = {};
 	if(data.draw){
 		ctx.lineTo(data.x,data.y);
 		ctx.strokeStyle = '#ff9000';	
