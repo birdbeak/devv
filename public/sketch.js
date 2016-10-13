@@ -57,8 +57,8 @@ var putPoint = function(e){
 		posY = e.clientY;
 	}
 	else if(e.targetTouches){
-		posX = e.targetTouches[0].clientX;
-		posY = e.targetTouches[0].clientY;
+		posX = e.targetTouches[0].pageX;
+		posY = e.targetTouches[0].pageY;
 		e.preventDefault();
 	}
 	
@@ -98,9 +98,7 @@ var disengage = function(){
 canvas.addEventListener('touchstart', engage,false);
 canvas.addEventListener('touchmove', putPoint,false);
 canvas.addEventListener('touchend', disengage,false);
-canvas.addEventListener('touchstart', engage,false);
-canvas.addEventListener('touchmove', putPoint,false);
-canvas.addEventListener('touchend', disengage,false);
+canvas.addEventListener('touchcancel', disengage,false);
 canvas.addEventListener('mousedown', engage,false);
 canvas.addEventListener('mousemove', putPoint,false);
 canvas.addEventListener('mouseup', disengage,false);
