@@ -68,7 +68,7 @@ var newputPoint = function(data){
 		ctx.beginPath();
 		ctx.moveTo(data.x, data.y);
 	}else{
-		//ctx.beginPath();
+		ctx.beginPath();
 	}
 };
 
@@ -116,7 +116,7 @@ var engage = function(e){
 
 var disengage = function(){
 	dragging = false;
-	//ctx.beginPath();
+	ctx.beginPath();
 };
 
 canvas.addEventListener('mousedown', engage,false);
