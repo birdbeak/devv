@@ -57,8 +57,8 @@ function newputPoint(data){
 
 var newputPoint = function(data){
 	if(data.draw){
-		ctx.lineTo(data.x, data.y);	
-		ctx.strokeStyle = '#ff8a00';
+		ctx.lineTo(data.x, data.y);
+		ctx.strokeStyle = '#ff8a00';	
 		ctx.stroke();
 		ctx.beginPath();
 		ctx.fillStyle = '#ff8a00';
@@ -66,9 +66,9 @@ var newputPoint = function(data){
 		ctx.fill();
 		ctx.beginPath();
 		ctx.moveTo(data.x, data.y);
-		ctx.stroke();
 	}else{
-		disengage();
+		ctx.beginPath();
+		ctx.moveTo(data.x, data.y);
 	}
 };
 
@@ -114,7 +114,6 @@ var engage = function(e){
 
 var disengage = function(){
 	dragging = false;
-	ctx.closePath();
 	ctx.beginPath();
 };
 
