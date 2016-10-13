@@ -1,11 +1,14 @@
 var socket = io.connect("//" + document.location.host || "//localhost:8080");
 socket.on('mouse', newputPoint);
-var lol = {
-	x:50,
-	y:50
-};
+
+
 
 function newputPoint(data){
+	var lol = {
+		x:data.x,
+		y:data.y
+	};
+	
 	if(data.draw){
 		ctx.lineTo(data.x,data.y);
 		ctx.strokeStyle = '#ff9000';	
