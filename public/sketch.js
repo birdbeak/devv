@@ -39,7 +39,7 @@ socket.on('mouse', newputPoint);
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
-var radius = 10;
+var radius = 8;
 
 var dragging = false;
 
@@ -76,7 +76,7 @@ var putPoint = function(e){
 	else if(e.targetTouches){
 		posX = e.targetTouches[0].clientX;
 		posY = e.targetTouches[0].clientY;
-		e.preventDefault();
+		//e.preventDefault();
 	}
 	
 	if(dragging){
