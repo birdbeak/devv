@@ -116,4 +116,5 @@ canvas.addEventListener('mouseup', disengage);
 canvas.addEventListener('touchstart', engage);
 canvas.addEventListener('touchmove', putPoint);
 canvas.addEventListener('touchend', disengage);
+canvas.addEventListener('touchcancel', disengage);
 
