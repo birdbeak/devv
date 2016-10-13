@@ -117,10 +117,10 @@ var disengage = function(){
 	ctx.beginPath();
 };
 
-canvas.addEventListener('mousedown', engage);
-canvas.addEventListener('mousemove', putPoint);
-canvas.addEventListener('mouseup', disengage);
-canvas.addEventListener('touchstart', engage);
-canvas.addEventListener('touchmove', putPoint);
-canvas.addEventListener('touchend', disengage);
+canvas.addEventListener('mousedown', engage,false);
+canvas.addEventListener('mousemove', putPoint,false);
+canvas.addEventListener('mouseup', disengage,false);
+canvas.addEventListener('touchstart', engage,false);
+canvas.addEventListener('touchmove', putPoint,false);
+canvas.addEventListener('touchend', disengage,false);
 
