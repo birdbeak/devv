@@ -67,7 +67,6 @@ var newputPoint = function(data){
 		ctx.beginPath();
 		ctx.moveTo(data.x, data.y);
 	}else{
-		data.draw = false;
 		ctx.beginPath();
 	}
 };
@@ -85,6 +84,8 @@ var putPoint = function(e){
 		posY = e.targetTouches[0].clientY;
 		e.preventDefault();
 	}
+	
+	console.log('Sending: ' + posX + ',' + posY);
 	
 	if(dragging){
 		ctx.lineTo(posX, posY);
