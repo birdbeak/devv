@@ -59,8 +59,8 @@ function newputPoint(data){
 		ctx.fill();
 		ctx.beginPath();
 		ctx.moveTo(data.x, data.y);
+		ctx.closePath();
 	}else{
-		dragging = false;
 		ctx.beginPath();
 	}
 }; 
@@ -76,7 +76,7 @@ var putPoint = function(e){
 	else if(e.targetTouches){
 		posX = e.targetTouches[0].clientX;
 		posY = e.targetTouches[0].clientY;
-		//e.preventDefault();
+		e.preventDefault();
 	}
 	
 	if(dragging){
@@ -116,5 +116,4 @@ canvas.addEventListener('mouseup', disengage);
 canvas.addEventListener('touchstart', engage);
 canvas.addEventListener('touchmove', putPoint);
 canvas.addEventListener('touchend', disengage);
-canvas.addEventListener('touchcancel', disengage);
 
