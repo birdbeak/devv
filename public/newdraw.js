@@ -4,7 +4,7 @@ socket.on('mouse', newputPoint);
 function newputPoint(data){
 	if(data.draw){
 		ctx.lineTo(data.x,data.y);
-		ctx.strokeStyle = '#fff';	
+		ctx.strokeStyle = '#ff9000';	
 		ctx.stroke();
 		ctx.beginPath();
 		ctx.fillStyle = '#ff9000';
