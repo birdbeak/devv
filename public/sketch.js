@@ -56,6 +56,7 @@ function newputPoint(data){
 }; 
 
 var newputPoint = function(data){
+	console.log('Sending: ' + data.x + ',' + data.y);
 	if(data.draw){
 		ctx.lineTo(data.x, data.y);
 		ctx.strokeStyle = '#ff8a00';	
