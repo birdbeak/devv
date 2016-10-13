@@ -64,7 +64,17 @@ var putPoint = function(e){
 	
 	console.log('Sending: ' + posX + ',' + posY);
 	
-	event(posX,posY);
+	if(dragging){
+		ctx.lineTo(posX, posY);
+		ctx.strokeStyle = '#000';	
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.fillStyle = '#000';
+		ctx.arc(posX, posY, radius, 0, Math.PI*2);
+		ctx.fill();
+		ctx.beginPath();
+		ctx.moveTo(posX, posY);
+	}
 	
 	var data = {
 		x : posX, 
@@ -93,16 +103,3 @@ canvas.addEventListener('mousedown', engage,false);
 canvas.addEventListener('mousemove', putPoint,false);
 canvas.addEventListener('mouseup', disengage,false);
 
-function event(posX,posY){
-	if(dragging){
-		ctx.lineTo(posX, posY);
-		ctx.strokeStyle = '#000';	
-		ctx.stroke();
-		ctx.beginPath();
-		ctx.fillStyle = '#000';
-		ctx.arc(posX, posY, radius, 0, Math.PI*2);
-		ctx.fill();
-		ctx.beginPath();
-		ctx.moveTo(posX, posY);
-	}
-}
