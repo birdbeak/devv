@@ -66,13 +66,13 @@ function newputPoint(data){
 
 var putPoint = function(e){
 	
-	if(e.clientX){
+	if(e.clientX != null){
 		var a = {
 			x : e.clientX,
 			y : e.clientY
 		};
 	}
-	else if(e.pageX){
+	else if(e.pageX != null){
 		var a = {
 			x : e.pageX,
 			y : e.pageY
@@ -80,15 +80,15 @@ var putPoint = function(e){
 	}
 	
 	if(dragging){
-		ctx.lineTo(a.x, a.y);
+		ctx.lineTo(e.pageX, e.pageY);
 		ctx.strokeStyle = '#000';	
 		ctx.stroke();
 		ctx.beginPath();
 		ctx.fillStyle = '#000';
-		ctx.arc(a.x, a.y, radius, 0, Math.PI*2);
+		ctx.arc(e.pageX, e.pageY, radius, 0, Math.PI*2);
 		ctx.fill();
 		ctx.beginPath();
-		ctx.moveTo(a.x, a.y);
+		ctx.moveTo(e.pageX, e.pageY);
 	}
 	
 	var data = {
