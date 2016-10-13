@@ -15,19 +15,22 @@ function newDrawing(data){
 	ellipse(data.x,data.y,8,8);
 }
 
-function mouseDragged(){
-	console.log('Sending: ' + mouseX + ',' + mouseY);
+function mouseDragged(e){
+	console.log('Sending: ' + e.x + ',' + e.y);
 	
 	var data = {
-		x: mouseX,
-		y: mouseY
+		x: e.x,
+		y: e.y
 	};
+	
+	e.preventDefault();
 	
 	socket.emit('mouse',data);
 	
 	noStroke();
 	fill(255,2555,255,70);
-	ellipse(mouseX,mouseY,8,8);
+	ellipse(e.x,e.y,8,8);
+	return false;
 }
 function draw(){
 	
