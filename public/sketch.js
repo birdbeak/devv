@@ -12,7 +12,7 @@ function setup(){
 function newDrawing(data){
 	noStroke();
 	fill(255,0,100,70);
-	ellipse(data.x,data.y,8,8);
+	ellipse(data.x,data.y,7,7);
 }
 
 function mouseDragged(e){
@@ -27,7 +27,7 @@ function mouseDragged(e){
 	
 	noStroke();
 	fill(255,2555,255,70);
-	ellipse(e.x,e.y,8,8);
+	ellipse(e.x,e.y,7,7);
 	return false;
 }
 
