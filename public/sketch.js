@@ -1,7 +1,7 @@
 var socket;
 
 function setup(){
-	createCanvas(window.innerWidth-10,window.innerHeight-10);
+	createCanvas(window.innerWidth-6,window.innerHeight-6);
 	background(51);
 	
 	socket = io.connect("//" + document.location.host || "//localhost:8080");
