@@ -26,7 +26,7 @@ function mouseDragged(e){
 	socket.emit('mouse',data);
 	
 	noStroke();
-	fill(255,2555,255,70);
+	fill(255,255,255,70);
 	ellipse(e.x,e.y,7,7);
 	return false;
 }
@@ -42,12 +42,13 @@ function touchMoved(){
 	socket.emit('mouse',data);
 	
 	noStroke();
-	fill(255,2555,255,70);
+	fill(255,255,255,70);
 	ellipse(touchX, touchY,8,8);
 	return false;
 }
 function draw(){
-	
+	//fill()
+	//rect(0,0,330,50);
 }
 
 
