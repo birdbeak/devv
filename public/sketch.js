@@ -1,57 +1,88 @@
-var socket;
+var socket,
+	menu,c,
+	save,
+	saveswt = true,
+	rgba = [0,0,0,0];
+
+var scribble = new Scribble();
 
 function setup(){
-	createCanvas(window.innerWidth-6,window.innerHeight-6);
-	background(51);
+	c = createCanvas(window.innerWidth-6,window.innerHeight-6);
+	background(0,0,0,0);
 	
 	socket = io.connect("//" + document.location.host || "//localhost:8080");
 	socket.on('mouse', newDrawing);
 	
+
 }
 
 function newDrawing(data){
-	noStroke();
-	fill(255,0,100,70);
-	ellipse(data.x,data.y,7,7);
+	stroke(255,0,100,50);
+	strokeWeight(3);
+	scribble.scribbleLine(data.x,data.y,data.px,data.py);
 }
 
-function mouseDragged(e){
-	console.log('Sending: ' + e.x + ',' + e.y);
-	
+function mouseDragged(){
 	var data = {
-		x: e.x,
-		y: e.y
+		x: mouseX,
+		y: mouseY,
+		px: pmouseX,
+		py: pmouseY
 	};
-	
 	socket.emit('mouse',data);
 	
-	noStroke();
-	fill(255,255,255,70);
-	ellipse(e.x,e.y,7,7);
-	return false;
+	stroke(255,255,255,50);
+	strokeWeight(3);
+	scribble.scribbleLine(mouseX, mouseY, pmouseX, pmouseY);
+	//ellipse(pmouseX,pmouseY,2,2);
+	//drawingContext.lineWidth = 5;
 }
 
 function touchMoved(){
-	console.log('Sending: ' + touchX + ',' + touchY);
-	
 	var data = {
 		x: touchX, 
-		y: touchY
+		y: touchY,
+		px : ptouchX,
+		py : ptouchY
 	};
 	
 	socket.emit('mouse',data);
 	
-	noStroke();
-	fill(255,255,255,70);
-	ellipse(touchX, touchY,8,8);
-	return false;
+	stroke(255,255,255,50);
+	strokeWeight(3);
+	scribble.scribbleLine(touchX, touchY, ptouchX, ptouchY);
 }
+function mouseClicked(){
+	if(saveswt && mouseX <= save.width && mouseY <= save.height){
+		//console.log('a');
+		saveswt = false;
+		draw();
+		saveCanvas(c,'myCanvas', 'png');
+	}else{
+		saveswt = true;
+	}
+}
+
 function draw(){
-	//fill()
-	//rect(0,0,330,50);
+	save = {
+		x : 0,
+		y : 0,
+		width : 50,
+		height : 50
+	};
+	fill(200);
+	noStroke();
+	rect(0,0,50,50);
+	if(mouseX <= save.width && mouseY <= save.height){
+		cursor(HAND);
+	}else{
+		cursor(ARROW);
+	}
 }
 
-
+function windowResized() {
+  //resizeCanvas(window.innerWidth-6,window.innerHeight-6);
+}
 /*socket = io.connect("//" + document.location.host || "//localhost:8080");
 
 var canvas = document.getElementById('canvas');
