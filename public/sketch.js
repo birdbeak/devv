@@ -51,7 +51,7 @@ function touchMoved(){
 	stroke(255,255,255,50);
 	strokeWeight(3);
 	scribble.scribbleLine(touchX, touchY, ptouchX, ptouchY);
-	touchX.preventDefault();
+	return false;
 }
 function mouseClicked(){
 	if(saveswt && mouseX <= save.width && mouseY <= save.height){
