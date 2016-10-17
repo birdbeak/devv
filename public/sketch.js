@@ -7,21 +7,25 @@ var socket,
 var scribble = new Scribble();
 
 function setup(){
-	c = createCanvas(window.innerWidth-6,window.innerHeight-6);
+	c = createCanvas(window.innerWidth-6,window.innerHeight-50);
 	background(0,0,0,0);
 	
 	socket = io.connect("//" + document.location.host || "//localhost:8080");
 	socket.on('mouse', newDrawing);
 	
 	var savebtn = select('#savebt');
-
+	var clear = select('#clear');
 	//savebtn.style('font-size','25pt');
-	savebtn.mouseClicked(saves);
+	savebtn.mouseClicked(function(){
+		saveCanvas('myCanvas','png');
+	});
+	clear.mouseClicked(clears);
 
 }
 
-function saves(){
-	saveCanvas('myCanvas','png');
+function clears(){
+	clear();
+	loadPixels();
 }
 
 function newDrawing(data){
@@ -87,7 +91,7 @@ function windowResized(e) {
 	//if(re.x < e.target.windowWidth || re.y < e.target.windowHeight)
 	//	loadPixels();
 		
- 	resizeCanvas(window.innerWidth-6,window.innerHeight-6);
+ 	resizeCanvas(window.innerWidth-6,window.innerHeight-50);
 	updatePixels();
 }
 
