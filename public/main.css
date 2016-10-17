@@ -30,8 +30,8 @@ canvas{
 	color:#eee;
 	font-size:8pt;
 	position:absolute;
-	top:19px;
-	right:75px;
+	bottom:0px;
+	right:0px;
 }
 #nav #savebt,#clear{
 	position: absolute;
