@@ -82,7 +82,9 @@ function draw(){
 }
 
 function windowResized() {
+	loadPixels();
  	resizeCanvas(window.innerWidth-6,window.innerHeight-6);
+	updatePixels();
 }
 /*socket = io.connect("//" + document.location.host || "//localhost:8080");
 
