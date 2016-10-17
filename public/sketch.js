@@ -2,9 +2,9 @@ var socket,
 	menu,c,
 	save0,
 	saveswt = true,
-	rgba = [0,0,0,0];
-
-var scribble = new Scribble();
+	rgba = [0,0,0,0],
+	mouseswt = false,
+	scribble = new Scribble();
 
 function setup(){
 	c = createCanvas(window.innerWidth-6,window.innerHeight-50);
@@ -15,17 +15,24 @@ function setup(){
 	
 	var savebtn = select('#savebt');
 	var clear = select('#clear');
+	var full = select('#full');
 	//savebtn.style('font-size','25pt');
 	savebtn.mouseClicked(function(){
 		saveCanvas('myCanvas','png');
+		return false;
 	});
 	clear.mouseClicked(clears);
-
+	full.mouseClicked(function(){
+		var fs = fullscreen();
+		fullscreen(!fs);
+		return false;
+	});
 }
 
 function clears(){
 	clear();
 	loadPixels();
+	return false;
 }
 
 function newDrawing(data){
