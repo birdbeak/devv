@@ -26,12 +26,12 @@ canvas{
 	color:white;
 	text-shadow: 2px 2px rgba(0,0,0,0.1);
 }
-#nav p {
+p {
 	color:#eee;
 	font-size:8pt;
 	position:absolute;
-	bottom:0px;
-	right:0px;
+	bottom:4px;
+	right:7px;
 }
 #nav #savebt,#clear{
 	position: absolute;
