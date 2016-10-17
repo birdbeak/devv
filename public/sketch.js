@@ -1,6 +1,6 @@
 var socket,
 	menu,c,
-	save,
+	save0,
 	saveswt = true,
 	rgba = [0,0,0,0];
 
@@ -13,13 +13,22 @@ function setup(){
 	socket = io.connect("//" + document.location.host || "//localhost:8080");
 	socket.on('mouse', newDrawing);
 	
+	var savebtn = select('#savebt');
 
+	//savebtn.style('font-size','25pt');
+	savebtn.mouseClicked(saves);
+
+}
+
+function saves(){
+	saveCanvas('myCanvas','png');
 }
 
 function newDrawing(data){
 	stroke(255,0,100,50);
 	strokeWeight(3);
 	scribble.scribbleLine(data.x,data.y,data.px,data.py);
+	loadPixels();
 }
 
 function mouseDragged(){
@@ -36,6 +45,7 @@ function mouseDragged(){
 	scribble.scribbleLine(mouseX, mouseY, pmouseX, pmouseY);
 	//ellipse(pmouseX,pmouseY,2,2);
 	//drawingContext.lineWidth = 5;
+	loadPixels();
 }
 
 function touchMoved(){
@@ -51,9 +61,10 @@ function touchMoved(){
 	stroke(255,255,255,50);
 	strokeWeight(3);
 	scribble.scribbleLine(touchX, touchY, ptouchX, ptouchY);
+	loadPixels();
 	return false;
 }
-function mouseClicked(){
+/*function mouseClicked(){
 	if(saveswt && mouseX <= save.width && mouseY <= save.height){
 		//console.log('a');
 		saveswt = false;
@@ -62,30 +73,25 @@ function mouseClicked(){
 	}else{
 		saveswt = true;
 	}
-}
+}*/
 
 function draw(){
-	save = {
+	save0 = {
 		x : 0,
 		y : 0,
 		width : 50,
 		height : 50
 	};
-	fill(200);
-	noStroke();
-	rect(0,0,50,50);
-	if(mouseX <= save.width && mouseY <= save.height){
-		cursor(HAND);
-	}else{
-		cursor(ARROW);
-	}
 }
-
-function windowResized() {
-	loadPixels();
+function windowResized(e) {
+	//if(re.x < e.target.windowWidth || re.y < e.target.windowHeight)
+	//	loadPixels();
+		
  	resizeCanvas(window.innerWidth-6,window.innerHeight-6);
 	updatePixels();
 }
+
+
 /*socket = io.connect("//" + document.location.host || "//localhost:8080");
 
 var canvas = document.getElementById('canvas');

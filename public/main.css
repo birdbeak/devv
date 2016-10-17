@@ -11,6 +11,27 @@ body{
 }
 canvas{
 	position:absolute;
-	top:3px;
+	top:50px;
 	left:3px;
+}
+#nav{
+	width:100%;
+	height:50px;
+	background:rgba(255,255,255,0.5);
+}
+#nav #savebt{
+	position: absolute;
+	top :9px;
+	right:9px;
+	width:60px;
+	height:30px;
+	background:#ddd;
+	line-height:25px;
+	text-align:center;
+	font-weight: bold;
+	-ms-user-select: none; 
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
 }
