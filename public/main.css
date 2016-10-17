@@ -27,6 +27,7 @@ canvas{
 	background:#ddd;
 	line-height:25px;
 	text-align:center;
+	font-family:"Arial Black";
 	font-weight: bold;
 	-ms-user-select: none; 
    -moz-user-select: -moz-none;
